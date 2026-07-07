@@ -124,7 +124,7 @@ function Pillars() {
           <img src={p.img} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={p.t} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)' }} />
           <div style={{ position: 'absolute', bottom: 40, left: 40, right: 40, color: 'white' }}>
-            <h3 style={{ fontSize: 24, marginBottom: 12, letterSpacing: '0.05em' }}>{p.t}</h3>
+            <h3 style={{ fontSize: 24, marginBottom: 12, letterSpacing: '0.05em', color: 'white' }}>{p.t}</h3>
             <p style={{ fontSize: 15, opacity: 0.9 }}>{p.d}</p>
           </div>
         </div>
@@ -145,10 +145,15 @@ function Gallery() {
           COTIZA TU PROYECTO {I.arrowRight({ width: 16, height: 16 })}
         </a>
       </div>
-      <div style={{ display: 'flex', gap: 24, overflowX: 'auto', paddingBottom: 40, scrollbarWidth: 'none' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gap: 32, paddingBottom: 40 }}>
         {PROYECTOS.map(p => (
-          <div key={p.id} style={{ minWidth: 400, height: 500, flexShrink: 0, position: 'relative' }}>
-            <img src={p.img} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Proyecto" />
+          <div key={p.id} style={{ height: 500, position: 'relative', overflow: 'hidden' }}>
+            <img src={p.img} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={`Proyecto ${p.place}`} />
+            <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%)' }} />
+            <div style={{ position: 'absolute', bottom: 32, left: 32, color: 'white' }}>
+              <div style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 8, color: 'var(--orange-soft)' }}>{p.style}</div>
+              <h3 style={{ fontSize: 20, fontWeight: 500, letterSpacing: '0.05em' }}>{p.place}</h3>
+            </div>
           </div>
         ))}
       </div>
@@ -179,18 +184,18 @@ function Proceso() {
 function Materiales() {
   const items = [
     { t: "MADERAS", d: "Naturaleza que aporta calidez y carácter.", img: "assets/textura_madera_1783407578520.png" },
-    { t: "PIEDRAS NATURALES", d: "Belleza única, resistencia que trasciende.", img: "https://images.unsplash.com/photo-1598306449172-132d0c242c36?w=800&q=80" },
-    { t: "ACABADOS", d: "Cada detalle, un estándar de excelencia.", img: "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80" },
-    { t: "DETALLES", d: "Pequeños detalles que hacen una gran diferencia.", img: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80" }
+    { t: "PIEDRAS NATURALES", d: "Belleza única, resistencia que trasciende.", img: "assets/textura_piedra_1783411422290.png" },
+    { t: "ACABADOS", d: "Cada detalle, un estándar de excelencia.", img: "assets/textura_acabado_1783411463320.png" },
+    { t: "DETALLES", d: "Pequeños detalles que hacen una gran diferencia.", img: "assets/detalle_cocina_1783411470474.png" }
   ];
   return (
     <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
       {items.map(i => (
         <div key={i.t} style={{ position: 'relative', height: 400 }}>
           <img src={i.img} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={i.t} />
-          <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.5)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%)' }} />
           <div style={{ position: 'absolute', bottom: 40, left: 40, right: 40, color: 'white' }}>
-            <h4 style={{ fontSize: 13, letterSpacing: '0.15em', fontWeight: 600, marginBottom: 12 }}>{i.t}</h4>
+            <h4 style={{ fontSize: 13, letterSpacing: '0.15em', fontWeight: 600, marginBottom: 12, color: 'white' }}>{i.t}</h4>
             <p style={{ fontSize: 14, opacity: 0.9 }}>{i.d}</p>
           </div>
         </div>
