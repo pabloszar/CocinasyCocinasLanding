@@ -34,10 +34,10 @@ const WA_TEXT = "?text=Hola%2C%20vi%20su%20sitio%20web%20y%20quiero%20agendar%20
 const WA_URL = "https://wa.me/527223183942" + WA_TEXT;
 
 const I = {
-  arrowRight: (p={}) => <svg {...p} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>,
-  wa: (p={}) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.91l-1.05 3.83 3.93-1.03A7.94 7.94 0 0 0 12.05 20h.01a7.94 7.94 0 0 0 7.94-7.93 7.88 7.88 0 0 0-2.4-5.75zm-5.55 12.2h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.33.61.62-2.27-.16-.24a6.6 6.6 0 1 1 12.21-3.49 6.6 6.6 0 0 1-6.6 6.45zm3.62-4.93c-.2-.1-1.18-.58-1.36-.65-.18-.07-.31-.1-.45.1-.13.2-.51.65-.62.78-.12.13-.23.15-.42.05-.2-.1-.83-.31-1.59-.98-.59-.52-.98-1.17-1.1-1.37-.12-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.45-1.08-.61-1.48-.16-.39-.33-.34-.45-.34l-.39-.01a.74.74 0 0 0-.54.25c-.18.2-.7.69-.7 1.67 0 .98.72 1.93.82 2.06.1.13 1.42 2.18 3.45 3.06.48.21.86.33 1.15.43.48.15.92.13 1.27.08.39-.06 1.18-.48 1.35-.95.17-.46.17-.86.12-.95-.05-.08-.18-.13-.38-.23z"/></svg>,
-  ig: (p={}) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>,
-  fb: (p={}) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22V13H16.5L17 9.5H13.5V7.5C13.5 6.5 13.8 5.8 15.2 5.8H17V2.7C16.7 2.7 15.6 2.6 14.4 2.6C11.9 2.6 10.2 4.1 10.2 6.9V9.5H7V13H10.2V22H13.5Z"/></svg>
+  arrowRight: (p = {}) => <svg {...p} width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><path d="M5 12h14M12 5l7 7-7 7" /></svg>,
+  wa: (p = {}) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.88 11.91l-1.05 3.83 3.93-1.03A7.94 7.94 0 0 0 12.05 20h.01a7.94 7.94 0 0 0 7.94-7.93 7.88 7.88 0 0 0-2.4-5.75zm-5.55 12.2h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.33.61.62-2.27-.16-.24a6.6 6.6 0 1 1 12.21-3.49 6.6 6.6 0 0 1-6.6 6.45zm3.62-4.93c-.2-.1-1.18-.58-1.36-.65-.18-.07-.31-.1-.45.1-.13.2-.51.65-.62.78-.12.13-.23.15-.42.05-.2-.1-.83-.31-1.59-.98-.59-.52-.98-1.17-1.1-1.37-.12-.2-.01-.3.09-.4.09-.09.2-.23.3-.35.1-.12.13-.2.2-.33.07-.13.03-.25-.02-.35-.05-.1-.45-1.08-.61-1.48-.16-.39-.33-.34-.45-.34l-.39-.01a.74.74 0 0 0-.54.25c-.18.2-.7.69-.7 1.67 0 .98.72 1.93.82 2.06.1.13 1.42 2.18 3.45 3.06.48.21.86.33 1.15.43.48.15.92.13 1.27.08.39-.06 1.18-.48 1.35-.95.17-.46.17-.86.12-.95-.05-.08-.18-.13-.38-.23z" /></svg>,
+  ig: (p = {}) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" y1="6.5" x2="17.51" y2="6.5" /></svg>,
+  fb: (p = {}) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22V13H16.5L17 9.5H13.5V7.5C13.5 6.5 13.8 5.8 15.2 5.8H17V2.7C16.7 2.7 15.6 2.6 14.4 2.6C11.9 2.6 10.2 4.1 10.2 6.9V9.5H7V13H10.2V22H13.5Z" /></svg>
 };
 
 function Nav() {
@@ -65,7 +65,7 @@ function Hero() {
         <img src="assets/Hero-CocinasYCocinas-2.0.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Hero Kitchen" />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%)' }} />
       </div>
-      
+
       <div style={{ position: 'relative', zIndex: 10, maxWidth: 800, color: 'white', marginTop: 80 }}>
         <h1 style={{ color: 'white', fontSize: 'clamp(56px, 8vw, 100px)', lineHeight: 1.05, marginBottom: 24, textShadow: '0 4px 24px rgba(0,0,0,0.5)' }}>
           Diseñamos espacios que <em style={{ color: 'var(--orange-soft)' }}>se viven.</em>
@@ -79,7 +79,7 @@ function Hero() {
           </a>
         </div>
       </div>
-      
+
       <div style={{ position: 'absolute', bottom: 48, left: 48, zIndex: 10, display: 'flex', alignItems: 'center', gap: 16, color: 'white' }}>
         <div style={{ width: 32, height: 48, border: '1px solid rgba(255,255,255,0.5)', borderRadius: 16, position: 'relative' }}>
           <div style={{ width: 2, height: 8, background: 'white', position: 'absolute', top: 8, left: 14, borderRadius: 2 }} />
@@ -139,10 +139,10 @@ function Gallery() {
       <div style={{ maxWidth: 1400, margin: '0 auto', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 60, flexWrap: 'wrap', gap: 32 }}>
         <div>
           <div style={{ color: 'var(--orange-deep)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 16, fontWeight: 600 }}>PROYECTOS</div>
-          <h2 style={{ fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--ink)' }}>Espacios únicos,<br/>historias reales.</h2>
+          <h2 style={{ fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--ink)' }}>Espacios únicos,<br />historias reales.</h2>
         </div>
         <a href={WA_URL} target="_blank" style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--ink)', fontSize: 12, letterSpacing: '0.1em', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--ink)', paddingBottom: 4 }}>
-          COTIZA TU PROYECTO {I.arrowRight({width:16, height:16})}
+          COTIZA TU PROYECTO {I.arrowRight({ width: 16, height: 16 })}
         </a>
       </div>
       <div style={{ display: 'flex', gap: 24, overflowX: 'auto', paddingBottom: 40, scrollbarWidth: 'none' }}>
@@ -291,7 +291,7 @@ function Footer() {
       <div style={{ padding: '40px 80px', borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 24, background: 'var(--ink)' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <img src="assets/logo-mark.svg" alt="Logo" style={{ height: 32, filter: 'brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(340deg)' }} />
-          <span style={{ fontSize: 16, fontFamily: 'Playfair Display' }}>COCINAS <em style={{color:'var(--orange-soft)'}}>&</em> COCINAS®</span>
+          <span style={{ fontSize: 16, fontFamily: 'Playfair Display' }}>COCINAS <em style={{ color: 'var(--orange-soft)' }}>&</em> COCINAS®</span>
         </div>
         <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>© 2026 Cocinas y Cocinas. Todos los derechos reservados.</div>
         <div style={{ fontSize: 12, color: 'rgba(255,255,255,0.5)' }}>Toluca / San Mateo Atenco, Edomex</div>
