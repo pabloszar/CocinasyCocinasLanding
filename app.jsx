@@ -8,10 +8,10 @@ const NAV_LINKS = [
 ];
 
 const PROYECTOS = [
-  { id: 1, style: "moderno", place: "Metepec", img: "file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/proyecto_1_1783407469044.png" },
-  { id: 2, style: "minimalista", place: "Toluca Centro", img: "file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/proyecto_2_1783407476697.png" },
-  { id: 3, style: "clasico", place: "San Mateo Atenco", img: "file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/proyecto_3_1783407500576.png" },
-  { id: 4, style: "moderno", place: "Lerma", img: "file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/proyecto_4_1783407571012.png" }
+  { id: 1, style: "moderno", place: "Metepec", img: "assets/proyecto_1_1783407469044.png" },
+  { id: 2, style: "minimalista", place: "Toluca Centro", img: "assets/proyecto_2_1783407476697.png" },
+  { id: 3, style: "clasico", place: "San Mateo Atenco", img: "assets/proyecto_3_1783407500576.png" },
+  { id: 4, style: "moderno", place: "Lerma", img: "assets/proyecto_4_1783407571012.png" }
 ];
 
 const PROCESO = [
@@ -95,7 +95,7 @@ function Manifiesto() {
     <section id="manifiesto" style={{ padding: '120px 48px', background: 'white' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'center' }}>
         <div>
-          <img src="file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/materiales_cocina_1783407391928.png" style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} alt="Detalle" />
+          <img src="assets/materiales_cocina_1783407391928.png" style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} alt="Detalle" />
         </div>
         <div>
           <div style={{ color: 'var(--orange-deep)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 24, fontWeight: 600 }}>NUESTRO MANIFIESTO</div>
@@ -113,9 +113,9 @@ function Manifiesto() {
 
 function Pillars() {
   const pillars = [
-    { t: "ARQUITECTURA", d: "Diseñamos en armonía con tu espacio y tu estilo de vida.", img: "file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/arquitectura_cocina_1783407382459.png" },
-    { t: "MATERIALES", d: "Seleccionamos solo materiales premium y acabados impecables.", img: "file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/materiales_cocina_1783407391928.png" },
-    { t: "FABRICACIÓN", d: "Fabricación a la medida con precisión y pasión por el detalle.", img: "file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/fabricacion_cocina_1783407401320.png" }
+    { t: "ARQUITECTURA", d: "Diseñamos en armonía con tu espacio y tu estilo de vida.", img: "assets/arquitectura_cocina_1783407382459.png" },
+    { t: "MATERIALES", d: "Seleccionamos solo materiales premium y acabados impecables.", img: "assets/materiales_cocina_1783407391928.png" },
+    { t: "FABRICACIÓN", d: "Fabricación a la medida con precisión y pasión por el detalle.", img: "assets/fabricacion_cocina_1783407401320.png" }
   ];
   return (
     <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))' }}>
@@ -178,7 +178,7 @@ function Proceso() {
 
 function Materiales() {
   const items = [
-    { t: "MADERAS", d: "Naturaleza que aporta calidez y carácter.", img: "file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/textura_madera_1783407578520.png" },
+    { t: "MADERAS", d: "Naturaleza que aporta calidez y carácter.", img: "assets/textura_madera_1783407578520.png" },
     { t: "PIEDRAS NATURALES", d: "Belleza única, resistencia que trasciende.", img: "https://images.unsplash.com/photo-1598306449172-132d0c242c36?w=800&q=80" },
     { t: "ACABADOS", d: "Cada detalle, un estándar de excelencia.", img: "https://images.unsplash.com/photo-1615529182904-14819c35db37?w=800&q=80" },
     { t: "DETALLES", d: "Pequeños detalles que hacen una gran diferencia.", img: "https://images.unsplash.com/photo-1620626011761-996317b8d101?w=800&q=80" }
@@ -203,7 +203,7 @@ function Testimonial() {
   return (
     <section style={{ position: 'relative', padding: '160px 48px', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
-        <img src="file:///Users/pabloszar/.gemini/antigravity-ide/brain/95fdefd8-619f-4562-8339-818530eb359b/proyecto_3_1783407500576.png" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.3)' }} alt="Fondo" />
+        <img src="assets/proyecto_3_1783407500576.png" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.3)' }} alt="Fondo" />
       </div>
       <div style={{ position: 'relative', zIndex: 10, maxWidth: 900 }}>
         <div style={{ color: 'var(--orange-soft)', fontSize: 64, fontFamily: 'Playfair Display', lineHeight: 0.5, marginBottom: 24 }}>&ldquo;</div>
