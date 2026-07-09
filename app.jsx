@@ -148,7 +148,7 @@ function Manifiesto() {
     <section id="manifiesto" style={{ position: 'relative', zIndex: 10, padding: '120px 48px', background: 'white', boxShadow: '0 -24px 64px rgba(0,0,0,0.2)' }}>
       <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'center' }}>
         <div>
-          <img src="assets/materiales_cocina_1783407391928.png" style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} alt="Detalle" />
+          <img src="assets/manifiesto_hero_kitchen_1783585762941.png" style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} alt="Lifestyle Cocina" />
         </div>
         <div>
           <div style={{ color: 'var(--orange-deep)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 24, fontWeight: 600 }}>NUESTRO MANIFIESTO</div>
