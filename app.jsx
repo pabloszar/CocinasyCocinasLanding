@@ -136,23 +136,43 @@ function Pillars() {
 function Gallery() {
   return (
     <section id="proyectos" style={{ padding: '120px 48px', background: 'var(--cream)' }}>
+      <style>
+        {`
+          .editorial-grid {
+            display: grid;
+            gap: 32px;
+            grid-template-columns: 1fr;
+            padding-bottom: 40px;
+          }
+          @media (min-width: 768px) {
+            .editorial-grid {
+              grid-template-columns: repeat(12, 1fr);
+            }
+            .editorial-item-0 { grid-column: span 7; height: 600px !important; }
+            .editorial-item-1 { grid-column: span 5; height: 600px !important; }
+            .editorial-item-2 { grid-column: span 4; }
+            .editorial-item-3 { grid-column: span 4; }
+            .editorial-item-4 { grid-column: span 4; }
+          }
+        `}
+      </style>
       <div style={{ maxWidth: 1400, margin: '0 auto', display: 'flex', alignItems: 'flex-end', justifyContent: 'space-between', marginBottom: 60, flexWrap: 'wrap', gap: 32 }}>
         <div>
           <div style={{ color: 'var(--orange-deep)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 16, fontWeight: 600 }}>PROYECTOS</div>
           <h2 style={{ fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--ink)' }}>Espacios únicos,<br />historias reales.</h2>
         </div>
         <a href={WA_URL} target="_blank" style={{ display: 'flex', alignItems: 'center', gap: 12, color: 'var(--ink)', fontSize: 12, letterSpacing: '0.1em', fontWeight: 600, textTransform: 'uppercase', borderBottom: '1px solid var(--ink)', paddingBottom: 4 }}>
-          COTIZA TU PROYECTO {I.arrowRight({ width: 16, height: 16 })}
+          VER TODOS LOS PROYECTOS {I.arrowRight({ width: 16, height: 16 })}
         </a>
       </div>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))', gap: 32, paddingBottom: 40 }}>
-        {PROYECTOS.map(p => (
-          <div key={p.id} style={{ height: 500, position: 'relative', overflow: 'hidden' }}>
+      <div className="editorial-grid" style={{ maxWidth: 1400, margin: '0 auto' }}>
+        {PROYECTOS.map((p, i) => (
+          <div key={p.id} className={`editorial-item-${i}`} style={{ height: 450, position: 'relative', overflow: 'hidden' }}>
             <img src={p.img} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={`Proyecto ${p.place}`} />
             <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%)' }} />
             <div style={{ position: 'absolute', bottom: 32, left: 32, color: 'white' }}>
               <div style={{ fontSize: 10, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 8, color: 'var(--orange-soft)' }}>{p.style}</div>
-              <h3 style={{ fontSize: 20, fontWeight: 500, letterSpacing: '0.05em' }}>{p.place}</h3>
+              <h3 style={{ fontSize: 20, fontWeight: 500, letterSpacing: '0.05em', color: 'white' }}>{p.place}</h3>
             </div>
           </div>
         ))}
@@ -191,12 +211,12 @@ function Materiales() {
   return (
     <section style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))' }}>
       {items.map(i => (
-        <div key={i.t} style={{ position: 'relative', height: 400 }}>
+        <div key={i.t} style={{ position: 'relative', height: 600 }}>
           <img src={i.img} style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt={i.t} />
           <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 50%)' }} />
           <div style={{ position: 'absolute', bottom: 40, left: 40, right: 40, color: 'white' }}>
-            <h4 style={{ fontSize: 13, letterSpacing: '0.15em', fontWeight: 600, marginBottom: 12, color: 'white' }}>{i.t}</h4>
-            <p style={{ fontSize: 14, opacity: 0.9 }}>{i.d}</p>
+            <h3 style={{ fontSize: 24, letterSpacing: '0.05em', fontWeight: 400, marginBottom: 12, color: 'white', fontFamily: 'Playfair Display' }}>{i.t}</h3>
+            <p style={{ fontSize: 15, opacity: 0.9 }}>{i.d}</p>
           </div>
         </div>
       ))}
@@ -256,20 +276,39 @@ function Locations() {
   ];
   return (
     <section style={{ padding: '120px 48px', background: 'var(--cream-2)' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto' }}>
-        <div style={{ color: 'var(--orange-deep)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 40, fontWeight: 600 }}>VISÍTANOS</div>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: 40 }}>
-          {locs.map(l => (
-            <div key={l.n} style={{ border: '1px solid var(--line)', background: 'white' }}>
-              <iframe src={l.map} style={{ width: '100%', height: 300, border: 0 }} />
-              <div style={{ padding: 32 }}>
-                <h3 style={{ fontSize: 24, marginBottom: 12 }}>{l.n}</h3>
-                <p style={{ color: 'var(--ink-3)', marginBottom: 8 }}>{l.d}</p>
-                <p style={{ color: 'var(--ink)', fontWeight: 600 }}>{l.p}</p>
-              </div>
+      <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center', marginBottom: 60 }}>
+        <div style={{ color: 'var(--orange-deep)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 16, fontWeight: 600 }}>VISÍTANOS</div>
+        <h2 style={{ fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--ink)', marginBottom: 24 }}>Estamos cerca de ti.</h2>
+        <p style={{ color: 'var(--ink-3)', fontSize: 16, maxWidth: 600, margin: '0 auto', lineHeight: 1.6 }}>
+          Dos espacios diseñados para inspirarte.<br/>Conoce nuestras tiendas y agenda una cita personalizada.
+        </p>
+      </div>
+      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: 40 }}>
+        {locs.map((l, idx) => (
+          <div key={l.n} style={{ background: 'var(--cream)' }}>
+            <iframe src={l.map} style={{ width: '100%', height: 400, border: 0 }} />
+            <div style={{ padding: '48px 0', position: 'relative' }}>
+              <div style={{ color: 'var(--orange-deep)', fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 16, fontWeight: 600 }}>{l.n}</div>
+              <h3 style={{ fontSize: 24, marginBottom: 32, fontFamily: 'Playfair Display', color: 'var(--ink)', fontWeight: 400 }}>{l.d}</h3>
+              <p style={{ color: 'var(--ink-3)', fontSize: 15, marginBottom: 32, letterSpacing: '0.05em' }}>{l.p}</p>
+              <a href={l.map} target="_blank" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: 'var(--orange-deep)', fontSize: 11, letterSpacing: '0.1em', fontWeight: 600, textTransform: 'uppercase' }}>
+                CÓMO LLEGAR {I.arrowRight({width: 14, height: 14})}
+              </a>
+              {/* Hoja decorativa sutil */}
+              <svg width="120" height="120" viewBox="0 0 200 200" style={{ position: 'absolute', right: 0, bottom: 20, opacity: 0.1, pointerEvents: 'none', transform: idx === 0 ? 'scaleX(-1)' : 'none' }}>
+                <path fill="currentColor" color="var(--ink)" d="M100,200 C40,200 0,160 0,100 C0,40 40,0 100,0 C160,0 200,40 200,100 C200,160 160,200 100,200 Z" />
+              </svg>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
+      </div>
+      <div style={{ textAlign: 'center', marginTop: 80 }}>
+        <a href={WA_URL} target="_blank" style={{ display: 'inline-flex', alignItems: 'center', gap: 12, color: 'var(--ink)', fontSize: 11, letterSpacing: '0.15em', fontWeight: 600, textTransform: 'uppercase' }}>
+          <div style={{ width: 40, height: 40, borderRadius: '50%', border: '1px solid var(--orange-soft)', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--orange-deep)" strokeWidth="1.5"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          AGENDA UNA CITA PERSONALIZADA {I.arrowRight({width: 16, height: 16, color: 'var(--orange-soft)'})}
+        </a>
       </div>
     </section>
   );
