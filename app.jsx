@@ -102,14 +102,24 @@ function Nav() {
 }
 
 function Hero() {
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <section id="hero" style={{ position: 'sticky', top: 0, zIndex: 0, height: '100vh', minHeight: 700, display: 'flex', alignItems: 'center', padding: '0 48px' }}>
-      <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
+    <section id="hero" style={{ position: 'sticky', top: 0, zIndex: 0, height: '100vh', minHeight: 700, display: 'flex', alignItems: 'center', padding: '0 48px', overflow: 'hidden' }}>
+      <div style={{ position: 'absolute', top: -150, bottom: -150, left: 0, right: 0, zIndex: 0, transform: `translateY(-${scrollY * 0.3}px)` }}>
         <img src="assets/Hero-CocinasYCocinas-2.0.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Hero Kitchen" />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%)' }} />
       </div>
 
-      <div style={{ position: 'relative', zIndex: 10, maxWidth: 800, color: 'white', marginTop: 80 }}>
+      <div style={{ position: 'relative', zIndex: 10, maxWidth: 800, color: 'white', marginTop: 80, transform: `translateY(-${scrollY * 0.2}px)` }}>
         <h1 style={{ color: 'white', fontSize: 'clamp(56px, 8vw, 100px)', lineHeight: 1.05, marginBottom: 24, textShadow: '0 4px 24px rgba(0,0,0,0.5)' }}>
           Diseñamos espacios que <em style={{ color: 'var(--orange-soft)' }}>se viven.</em>
         </h1>
@@ -395,8 +405,10 @@ function App() {
   return (
     <>
       <Nav />
-      <Hero />
-      <Manifiesto />
+      <div style={{ position: 'relative', zIndex: 0 }}>
+        <Hero />
+        <Manifiesto />
+      </div>
       <Pillars />
       <Gallery />
       <Proceso />
