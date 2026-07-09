@@ -40,6 +40,24 @@ const I = {
   fb: (p = {}) => <svg {...p} width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M13.5 22V13H16.5L17 9.5H13.5V7.5C13.5 6.5 13.8 5.8 15.2 5.8H17V2.7C16.7 2.7 15.6 2.6 14.4 2.6C11.9 2.6 10.2 4.1 10.2 6.9V9.5H7V13H10.2V22H13.5Z" /></svg>
 };
 
+function GlobalStyles() {
+  return (
+    <style>
+      {`
+        @media (max-width: 768px) {
+          .hide-sm { display: none !important; }
+          .stack-sm { grid-template-columns: 1fr !important; display: flex !important; flex-direction: column !important; gap: 40px !important; }
+          .pad-sm { padding: 60px 24px !important; }
+          .pad-hero-sm { padding: 0 24px !important; }
+          .nav-sm { padding: 16px 24px !important; }
+          .footer-pad-sm { padding: 40px 24px !important; }
+          .loc-card-sm { padding: 32px 24px !important; }
+        }
+      `}
+    </style>
+  );
+}
+
 function Nav() {
   const [scrolled, setScrolled] = useState(false);
 
@@ -85,7 +103,7 @@ function Nav() {
   };
 
   return (
-    <nav style={navStyles}>
+    <nav style={navStyles} className="nav-sm">
       <div style={{ display: 'flex', alignItems: 'center', gap: 12, transform: scrolled ? 'scale(0.85)' : 'none', transformOrigin: 'left center', transition: 'transform 0.4s ease' }}>
         <img src="assets/logo-mark.svg" alt="Cocinas y Cocinas" style={{ height: 48, filter: 'brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(340deg)' }} />
         <div style={{ color: 'white', fontFamily: 'Playfair Display' }}>
@@ -113,7 +131,7 @@ function Hero() {
   }, []);
 
   return (
-    <section id="hero" style={{ position: 'sticky', top: 0, zIndex: 0, height: '100vh', minHeight: 700, display: 'flex', alignItems: 'center', padding: '0 48px', overflow: 'hidden' }}>
+    <section id="hero" style={{ position: 'sticky', top: 0, zIndex: 0, height: '100vh', minHeight: 700, display: 'flex', alignItems: 'center', padding: '0 48px', overflow: 'hidden' }} className="pad-hero-sm">
       <div style={{ position: 'absolute', inset: 0, zIndex: 0, transform: `translateY(-${scrollY * 0.7}px)` }}>
         <img src="assets/Hero-CocinasYCocinas-2.0.png" style={{ width: '100%', height: '100%', objectFit: 'cover' }} alt="Hero Kitchen" />
         <div style={{ position: 'absolute', inset: 0, background: 'linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 100%)' }} />
@@ -145,8 +163,8 @@ function Hero() {
 
 function Manifiesto() {
   return (
-    <section id="manifiesto" style={{ position: 'relative', zIndex: 10, padding: '120px 48px', background: 'white', boxShadow: '0 -24px 64px rgba(0,0,0,0.2)' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'center' }}>
+    <section id="manifiesto" style={{ position: 'relative', zIndex: 10, padding: '120px 48px', background: 'white', boxShadow: '0 -24px 64px rgba(0,0,0,0.2)' }} className="pad-sm">
+      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.2fr', gap: 80, alignItems: 'center' }} className="stack-sm">
         <div>
           <img src="assets/manifiesto_hero_kitchen_1783585762941.png" style={{ width: '100%', aspectRatio: '4/3', objectFit: 'cover' }} alt="Lifestyle Cocina" />
         </div>
@@ -188,7 +206,7 @@ function Pillars() {
 
 function Gallery() {
   return (
-    <section id="proyectos" style={{ padding: '120px 48px', background: 'var(--cream)' }}>
+    <section id="proyectos" style={{ padding: '120px 48px', background: 'var(--cream)' }} className="pad-sm">
       <style>
         {`
           .editorial-grid {
@@ -236,7 +254,7 @@ function Gallery() {
 
 function Proceso() {
   return (
-    <section style={{ padding: '120px 48px', background: 'white' }}>
+    <section style={{ padding: '120px 48px', background: 'white' }} className="pad-sm">
       <div style={{ maxWidth: 1400, margin: '0 auto' }}>
         <div style={{ color: 'var(--orange-deep)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 60, fontWeight: 600 }}>NUESTRO PROCESO</div>
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: 40, position: 'relative' }}>
@@ -279,7 +297,7 @@ function Materiales() {
 
 function Testimonial() {
   return (
-    <section style={{ position: 'relative', padding: '160px 48px', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
+    <section style={{ position: 'relative', padding: '160px 48px', color: 'white', display: 'flex', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }} className="pad-sm">
       <div style={{ position: 'absolute', inset: 0, zIndex: 0 }}>
         <img src="assets/proyecto_3_1783407500576.png" style={{ width: '100%', height: '100%', objectFit: 'cover', filter: 'brightness(0.3)' }} alt="Fondo" />
       </div>
@@ -297,8 +315,8 @@ function Testimonial() {
 function FAQSection() {
   const [open, setOpen] = useState(0);
   return (
-    <section style={{ padding: '120px 48px', background: 'var(--cream)', color: 'var(--ink)' }}>
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80 }}>
+    <section style={{ padding: '120px 48px', background: 'var(--cream)', color: 'var(--ink)' }} className="pad-sm">
+      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: '1fr 1.5fr', gap: 80 }} className="stack-sm">
         <div>
           <div style={{ color: 'var(--orange-deep)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 24, fontWeight: 600 }}>FAQ</div>
           <h2 style={{ fontSize: 'clamp(32px, 4vw, 48px)', color: 'var(--ink)', marginBottom: 24 }}>Preguntas Frecuentes.</h2>
@@ -328,7 +346,7 @@ function Locations() {
     { n: "San Mateo Atenco", d: "Juárez #601, Barrio de la Concepción", p: "722 706 3545", map: "https://www.google.com/maps?q=Ju%C3%A1rez+601,+Barrio+de+la+Concepci%C3%B3n,+San+Mateo+Atenco&output=embed" }
   ];
   return (
-    <section style={{ padding: '120px 48px', background: 'var(--cream-2)' }}>
+    <section style={{ padding: '120px 48px', background: 'var(--cream-2)' }} className="pad-sm">
       <div style={{ maxWidth: 1200, margin: '0 auto', textAlign: 'center', marginBottom: 60 }}>
         <div style={{ color: 'var(--orange-deep)', fontSize: 12, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 16, fontWeight: 600 }}>VISÍTANOS</div>
         <h2 style={{ fontSize: 'clamp(36px, 4vw, 56px)', color: 'var(--ink)', marginBottom: 24 }}>Estamos cerca de ti.</h2>
@@ -336,11 +354,11 @@ function Locations() {
           Dos espacios diseñados para inspirarte.<br/>Conoce nuestras tiendas y agenda una cita personalizada.
         </p>
       </div>
-      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: 40 }}>
+      <div style={{ maxWidth: 1200, margin: '0 auto', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 40 }}>
         {locs.map((l, idx) => (
           <div key={l.n} style={{ background: 'var(--cream)' }}>
             <iframe src={l.map} style={{ width: '100%', height: 400, border: 0 }} />
-            <div style={{ padding: 48, position: 'relative' }}>
+            <div style={{ padding: 48, position: 'relative' }} className="loc-card-sm">
               <div style={{ color: 'var(--orange-deep)', fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 16, fontWeight: 600 }}>{l.n}</div>
               <h3 style={{ fontSize: 24, marginBottom: 32, fontFamily: 'Playfair Display', color: 'var(--ink)', fontWeight: 400 }}>{l.d}</h3>
               <p style={{ color: 'var(--ink-3)', fontSize: 15, marginBottom: 32, letterSpacing: '0.05em' }}>{l.p}</p>
@@ -370,13 +388,13 @@ function Locations() {
 function Footer() {
   return (
     <footer id="contacto" style={{ background: 'var(--ink-2)', color: 'white' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', minHeight: 600 }}>
-        <div style={{ padding: '120px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: 'var(--ink)' }}>
+      <div style={{ display: 'grid', gridTemplateColumns: '1.2fr 1fr', minHeight: 600 }} className="stack-sm">
+        <div style={{ padding: '120px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center', background: 'var(--ink)' }} className="footer-pad-sm">
           <h2 style={{ fontSize: 'clamp(40px, 5vw, 64px)', color: 'white', marginBottom: 40, lineHeight: 1.1 }}>
             ¿Listo para diseñar el espacio más importante de tu hogar?
           </h2>
         </div>
-        <div style={{ padding: '120px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <div style={{ padding: '120px 80px', display: 'flex', flexDirection: 'column', justifyContent: 'center' }} className="footer-pad-sm">
           <p style={{ fontSize: 18, color: 'rgba(255,255,255,0.8)', marginBottom: 40, lineHeight: 1.6 }}>
             Agenda una asesoría privada y comencemos a crear la cocina que siempre has imaginado. Presupuestos sin compromiso y plazos por escrito.
           </p>
@@ -385,7 +403,7 @@ function Footer() {
           </a>
         </div>
       </div>
-      <div style={{ padding: '40px 80px', borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 24, background: 'var(--ink)' }}>
+      <div style={{ padding: '40px 80px', borderTop: '1px solid rgba(255,255,255,0.1)', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 24, background: 'var(--ink)' }} className="footer-pad-sm">
         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
           <img src="assets/logo-mark.svg" alt="Logo" style={{ height: 32, filter: 'brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(340deg)' }} />
           <span style={{ fontSize: 16, fontFamily: 'Playfair Display' }}>COCINAS <em style={{ color: 'var(--orange-soft)' }}>&</em> COCINAS®</span>
@@ -404,6 +422,7 @@ function Footer() {
 function App() {
   return (
     <>
+      <GlobalStyles />
       <Nav />
       <div style={{ position: 'relative', zIndex: 0 }}>
         <Hero />
