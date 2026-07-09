@@ -41,9 +41,52 @@ const I = {
 };
 
 function Nav() {
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const navStyles = scrolled ? {
+    position: 'fixed',
+    top: 24,
+    left: '50%',
+    transform: 'translateX(-50%)',
+    width: 'calc(100% - 96px)',
+    maxWidth: 1200,
+    background: 'rgba(25, 25, 25, 0.7)',
+    backdropFilter: 'blur(16px)',
+    WebkitBackdropFilter: 'blur(16px)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    borderRadius: 999,
+    padding: '12px 32px',
+    boxShadow: '0 16px 40px rgba(0,0,0,0.4)',
+    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+    zIndex: 1000,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  } : {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    right: 0,
+    background: 'transparent',
+    padding: '24px 48px',
+    transition: 'all 0.4s cubic-bezier(0.16, 1, 0.3, 1)',
+    zIndex: 1000,
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center'
+  };
+
   return (
-    <nav style={{ position: 'absolute', top: 0, left: 0, right: 0, zIndex: 50, padding: '24px 48px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
+    <nav style={navStyles}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 12, transform: scrolled ? 'scale(0.85)' : 'none', transformOrigin: 'left center', transition: 'transform 0.4s ease' }}>
         <img src="assets/logo-mark.svg" alt="Cocinas y Cocinas" style={{ height: 48, filter: 'brightness(0) invert(1) sepia(1) saturate(5) hue-rotate(340deg)' }} />
         <div style={{ color: 'white', fontFamily: 'Playfair Display' }}>
           <div style={{ fontSize: 20, fontWeight: 600 }}>COCINAS <em style={{ color: 'var(--orange-soft)' }}>&</em> COCINAS®</div>
@@ -53,7 +96,7 @@ function Nav() {
       <div style={{ display: 'flex', gap: 40, alignItems: 'center' }} className="hide-sm">
         {NAV_LINKS.map(l => <a key={l.label} href={l.href} style={{ color: 'white', fontSize: 12, letterSpacing: '0.1em' }}>{l.label}</a>)}
       </div>
-      <a href={WA_URL} target="_blank" className="hide-sm" style={{ border: '1px solid rgba(255,255,255,0.3)', padding: '12px 24px', color: 'white', fontSize: 11, letterSpacing: '0.1em', borderRadius: 999 }}>AGENDA UNA ASESORÍA &rarr;</a>
+      <a href={WA_URL} target="_blank" className="hide-sm" style={{ border: '1px solid rgba(255,255,255,0.3)', padding: '12px 24px', color: 'white', fontSize: 11, letterSpacing: '0.1em', borderRadius: 999, transition: 'all 0.3s ease' }}>AGENDA UNA ASESORÍA &rarr;</a>
     </nav>
   );
 }
@@ -287,7 +330,7 @@ function Locations() {
         {locs.map((l, idx) => (
           <div key={l.n} style={{ background: 'var(--cream)' }}>
             <iframe src={l.map} style={{ width: '100%', height: 400, border: 0 }} />
-            <div style={{ padding: '48px 0', position: 'relative' }}>
+            <div style={{ padding: 48, position: 'relative' }}>
               <div style={{ color: 'var(--orange-deep)', fontSize: 11, letterSpacing: '0.15em', textTransform: 'uppercase', marginBottom: 16, fontWeight: 600 }}>{l.n}</div>
               <h3 style={{ fontSize: 24, marginBottom: 32, fontFamily: 'Playfair Display', color: 'var(--ink)', fontWeight: 400 }}>{l.d}</h3>
               <p style={{ color: 'var(--ink-3)', fontSize: 15, marginBottom: 32, letterSpacing: '0.05em' }}>{l.p}</p>
@@ -363,7 +406,7 @@ function App() {
       <Locations />
       <Footer />
       <a href={WA_URL} target="_blank" style={{ position: 'fixed', bottom: 32, right: 32, zIndex: 100, background: 'var(--wa)', color: 'white', width: 64, height: 64, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', boxShadow: '0 8px 24px rgba(37, 211, 102, 0.4)' }}>
-        {I.wa({ width: 32, height: 32 })}
+        {I.wa({ width: 44, height: 44 })}
       </a>
     </>
   );
